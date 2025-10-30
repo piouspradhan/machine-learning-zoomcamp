@@ -85,12 +85,12 @@ def train_model():
     return pipeline
 
 
-def save_model(pipeline):
+def save_model(model, pipeline):
 
     # with open ('model.bin', 'wb') as f_out:
     #     pickle.dump((dv, model), f_out)
 
-    with open ('model.bin', 'wb') as f_out:
+    with open (model, 'wb') as f_out:
         pickle.dump(pipeline, f_out)
 
     # get_ipython().system('ls -lh')
@@ -100,5 +100,5 @@ def save_model(pipeline):
 #pipeline
 
 df = load_data()
-pipeline = train_model()
-save_model(pipeline)
+pipeline = train_model(df)
+save_model('model.bin', pipeline)
